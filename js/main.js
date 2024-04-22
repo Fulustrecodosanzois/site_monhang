@@ -20,10 +20,15 @@
     $(window).scroll(function () {
         if ($(this).scrollTop() > 45) {
             $('.navbar').addClass('sticky-top shadow-sm');
+            $('.normal-logo').addClass('d-none');
+            $('.scrolled-logo').removeClass('d-none');
         } else {
             $('.navbar').removeClass('sticky-top shadow-sm');
+            $('.normal-logo').removeClass('d-none');
+            $('.scrolled-logo').addClass('d-none');
         }
     });
+    
     
     
     // Dropdown on mouse hover
@@ -106,4 +111,6 @@
     });
     
 })(jQuery);
+
+
 
