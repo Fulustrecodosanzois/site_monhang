@@ -61,6 +61,8 @@ form.addEventListener('submit', (event) => {
     const referencia = ref(database, 'formulario'); // Crie uma referência a uma localização no banco de dados
     push(referencia, dadosFormulario); // Envie os dados para o Firebase
 
+    alert("MENSAGEM ENVIADA COM SUCESSO!!!")
+
     // Limpe o formulário após o envio
     form.reset();
 });
