@@ -18,10 +18,35 @@ form.addEventListener('submit', (event) => {
     event.preventDefault(); // Evite o comportamento padrão de envio do formulário
 
     // Capture os valores dos campos do formulário
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const assunto = document.getElementById('assunto').value;
-    const mensagem = document.getElementById('mensagem').value;
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const assunto = document.getElementById('assunto').value.trim();
+    const mensagem = document.getElementById('mensagem').value.trim();
+
+    // Valide se todos os campos estão preenchidos
+    if (nome === '') {
+        alert('Por favor, preencha o campo Nome.');
+        return;
+    }
+    if (email === '') {
+        alert('Por favor, preencha o campo Email.');
+        return;
+    }
+    if (assunto === '') {
+        alert('Por favor, preencha o campo Assunto.');
+        return;
+    }
+    if (mensagem === '') {
+        alert('Por favor, preencha o campo Mensagem.');
+        return;
+    }
+
+    // Valide se o campo de e-mail está no formato correto
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Por favor, insira um endereço de e-mail válido.');
+        return;
+    }
 
     // Formate os dados em um objeto
     const dadosFormulario = {
