@@ -1,0 +1,31 @@
+{
+    "formulario": {
+      "campos": [
+        {
+          "nome": "nome",
+          "tipo": "texto",
+          "descricao": "Nome completo",
+          "obrigatorio": true
+        },
+        {
+          "nome": "email",
+          "tipo": "email",
+          "descricao": "Endereço de e-mail",
+          "obrigatorio": true
+        },
+        {
+          "nome": "assunto",
+          "tipo": "texto",
+          "descricao": "Assunto",
+          "obrigatorio": true
+        },
+        {
+          "nome": "mensagem",
+          "tipo": "texto",
+          "descricao": "Mensagem",
+          "obrigatorio": true
+        }
+      ]
+    }
+  }
+  
