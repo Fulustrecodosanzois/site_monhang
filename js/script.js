@@ -56,13 +56,13 @@ form.addEventListener('submit', (event) => {
         mensagem: mensagem
     };
 
-    // Envie os dados para o banco de dados Firebase
-    const database = getDatabase(); // Obtenha uma referência ao banco de dados
-    const referencia = ref(database, 'formulario'); // Crie uma referência a uma localização no banco de dados
-    push(referencia, dadosFormulario); // Envie os dados para o Firebase
+    // Envia para o banco de dados Firebase
+    const database = getDatabase(); // Obtem uma referência ao banco de dados
+    const referencia = ref(database, 'formulario'); // Cria uma referência a uma localização no banco de dados
+    push(referencia, dadosFormulario); // Envia os dados para o Firebase
 
     alert("MENSAGEM ENVIADA COM SUCESSO!!!")
 
-    // Limpe o formulário após o envio
+
     form.reset();
 });
