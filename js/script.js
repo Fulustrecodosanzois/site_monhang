@@ -5,10 +5,8 @@ import { firebaseConfig } from "./firebase-config.js";
 const app = initializeApp(firebaseConfig);
 const form = document.getElementById('formulario');
 
-
 form.addEventListener('submit', (event) => {
     event.preventDefault(); 
-
 
     const nome = document.getElementById('nome').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -38,20 +36,22 @@ form.addEventListener('submit', (event) => {
         return;
     }
 
+
+    const dataHoraAtualBrasilia = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+
     const dadosFormulario = {
         nome: nome,
         email: email,
         assunto: assunto,
-        mensagem: mensagem
+        mensagem: mensagem,
+        dataHoraEnvio: dataHoraAtualBrasilia
     };
 
-    // Envia para o banco de dados Firebase
-    const database = getDatabase(); // Obtem uma referência ao banco de dados
-    const referencia = ref(database, 'formulario'); // Cria uma referência a uma localização no banco de dados
-    push(referencia, dadosFormulario); // Envia os dados para o Firebase
+    const database = getDatabase();
+    const referencia = ref(database, 'formulario');
+    push(referencia, dadosFormulario);
 
     alert("MENSAGEM ENVIADA COM SUCESSO!!!")
-
 
     form.reset();
 });
