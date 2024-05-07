@@ -5,11 +5,23 @@ import { firebaseConfig } from "./firebase-config.js";
 const app = initializeApp(firebaseConfig);
 const form = document.getElementById('formulario');
 
+
+const telefoneInput = document.getElementById('telefone');
+
+telefoneInput.addEventListener('input', (event) => {
+    const input = event.target;
+    const valor = input.value.replace(/\D/g, '');
+    const formatacao = valor.replace(/(\d{2})(\d{1})(\d{4})(\d{4})/, '$1 $2 $3 $4'); 
+    input.value = formatacao.substring(0, 14); 
+});
+
+
 form.addEventListener('submit', (event) => {
     event.preventDefault(); 
 
     const nome = document.getElementById('nome').value.trim();
     const email = document.getElementById('email').value.trim();
+    const telefone = document.getElementById('telefone').value.trim();
     const assunto = document.getElementById('assunto').value.trim();
     const mensagem = document.getElementById('mensagem').value.trim();
 
@@ -19,6 +31,10 @@ form.addEventListener('submit', (event) => {
     }
     if (email === '') {
         alert('Por favor, preencha o campo Email.');
+        return;
+    }
+    if (telefone === '') {
+        alert('Por favor, preencha o campo Telefone.');
         return;
     }
     if (assunto === '') {
@@ -42,6 +58,7 @@ form.addEventListener('submit', (event) => {
     const dadosFormulario = {
         nome: nome,
         email: email,
+        telefone: telefone,
         assunto: assunto,
         mensagem: mensagem,
         dataHoraEnvio: dataHoraAtualBrasilia
